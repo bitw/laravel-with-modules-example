@@ -21,3 +21,18 @@ Documentation for the laravel-modules can be found on the [https://github.com/cr
 
 * "app/modules" moved to "/modules"
 * "app/storage" moved to "/storage"
+
+Use commands after cloning repository
+
+Downloading packages:
+
+	$ composer update
+
+Update autoloading classes
+
+	$ php artisan dump-autoload
+
+Install migrations:
+
+	$ php artisan migrate
+	$ php artisan modules:migrate --seed
