@@ -32,7 +32,7 @@ Update autoloading classes
 
 	$ php artisan dump-autoload
 
-Install migrations:
+Install migrations and seeding database for a modules:
 
 	$ php artisan migrate
 	$ php artisan modules:migrate --seed
