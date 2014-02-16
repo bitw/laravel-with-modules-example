@@ -1,3 +1,5 @@
+.idea
+.idea/*
 /bootstrap/compiled.php
 /vendor
 composer.phar
@@ -7,4 +9,3 @@ composer.lock
 .DS_Store
 Thumbs.db
 .directory
-/.idea
