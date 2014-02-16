@@ -6,7 +6,8 @@
 	"require": {
 		"laravel/framework": "4.1.*",
 		"raveren/kint": "dev-master",
-		"creolab/laravel-modules": "dev-master"
+		"creolab/laravel-modules": "dev-master",
+		"fzaninotto/faker": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

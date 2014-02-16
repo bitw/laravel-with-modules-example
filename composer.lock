@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "53daac0fb90b2088aae9868114a36172",
+    "hash": "2ebee9e1a499edaef0e7aaba5d54fbb0",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -176,6 +176,52 @@
                 "zf2"
             ],
             "time": "2013-12-04 14:19:30"
+        },
+        {
+            "name": "fzaninotto/faker",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzaninotto/Faker.git",
+                "reference": "7b4d01a928fb1a2c792f8f6659ea7316d14ca1c9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/7b4d01a928fb1a2c792f8f6659ea7316d14ca1c9",
+                "reference": "7b4d01a928fb1a2c792f8f6659ea7316d14ca1c9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Faker": "src/",
+                    "Faker\\PHPUnit": "test/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "time": "2014-02-06 22:17:25"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -1733,7 +1779,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "raveren/kint": 20,
-        "creolab/laravel-modules": 20
+        "creolab/laravel-modules": 20,
+        "fzaninotto/faker": 20
     },
     "platform": [
 
