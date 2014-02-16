@@ -19,5 +19,5 @@ Documentation for the laravel-modules can be found on the [https://github.com/cr
 
 ## Configured directories
 
-* "app/modules" removed to "/modules"
-* "app/storage" removed to "/storage"
+* "app/modules" moved to "/modules"
+* "app/storage" moved to "/storage"
