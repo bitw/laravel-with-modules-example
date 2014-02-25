@@ -1,6 +1,6 @@
 <?php namespace App\Modules\Users\Controllers;
 
-use Sentry, Redirect, View;
+use Sentry, Redirect, View, Input;
 
 class UsersController extends \BaseController {
 
@@ -19,7 +19,7 @@ class UsersController extends \BaseController {
 			{
 				// Не переданы email и пароль
 
-				return;
+				return 'Не передан email и\\или пароль!';
 			}
 
 			try
