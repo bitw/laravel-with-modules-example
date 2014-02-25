@@ -1,5 +1,0 @@
-{
-	"enabled": true,
-	"provider": "App\\Modules\\Auth\\AuthServiceProvider",
-	"seeder": "App\\Modules\\Auth\\Seeds\\DatabaseSeeder"
-}
