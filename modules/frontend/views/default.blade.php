@@ -24,9 +24,9 @@
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
 
-	<script src="/assets/angular/modules/main/app.js"></script>
-	<script src="/assets/angular/modules/main/config.js"></script>
-	<script src="/assets/angular/modules/main/directives.js"></script>
+	<script src="/assets/modules/main/app.js"></script>
+	<script src="/assets/modules/main/config.js"></script>
+	<script src="/assets/modules/main/directives.js"></script>
 
 </head>
 <body>
