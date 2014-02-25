@@ -1,16 +1,16 @@
 <?php
 
 Route::get('signin',  array(
-	'as'    => 'signin',
+	'as'    => 'users.signin',
 	'uses'  => 'App\Modules\Users\Controllers\UsersController@getSignin'
 ));
 
 Route::post('signin', array(
-	'as'    => 'signin.post',
+	'as'    => 'users.signin.post',
 	'uses'  => 'App\Modules\Users\Controllers\UsersController@postSignin'
 ));
 
 Route::get('signout', array(
-	'as'    => 'signout',
+	'as'    => 'users.signout',
 	'uses'  => 'App\Modules\Users\Controllers\UsersController@getSignout'
 ));

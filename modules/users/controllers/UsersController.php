@@ -9,9 +9,17 @@ class UsersController extends \BaseController {
 		if (Sentry::check())
 		{
 			// Пользователь авторизован
-			Redirect::to('/');
+			Redirect::intended();
 		}
 		else
+		{
+
+		}
+	}
+
+	public function postSignin()
+	{
+		if(!Sentry::check())
 		{
 			// Пользователь не авторизован
 
@@ -26,8 +34,8 @@ class UsersController extends \BaseController {
 			{
 				// Пользовательские данные
 				$credentials = array(
-					'email'    => Input::get('email'),
-					'password' => Input::get('password'),
+					'email'    => Input::post('email'),
+					'password' => Input::post('password'),
 				);
 
 				// Попытка авторизации
@@ -48,8 +56,7 @@ class UsersController extends \BaseController {
 			catch (Cartalyst\Sentry\Users\UserNotActivatedException $e){
 				echo 'Пользователь не активирован.';
 			}
-
-			// The following is only required if throttle is enabled
+				// The following is only required if throttle is enabled
 			catch (Cartalyst\Sentry\Throttling\UserSuspendedException $e){
 				echo 'Учетная запись приостановлена.';
 			}
@@ -57,11 +64,6 @@ class UsersController extends \BaseController {
 				echo 'Пользователь забанен.';
 			}
 		}
-	}
-
-	public function postSignin()
-	{
-
 	}
 
 	public function getSignout()
