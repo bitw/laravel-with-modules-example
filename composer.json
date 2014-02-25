@@ -8,7 +8,7 @@
 		"raveren/kint": "dev-master",
 		"creolab/laravel-modules": "dev-master",
 		"fzaninotto/faker": "dev-master",
-		"cartalyst/sentry": "2.0.*"
+		"cartalyst/sentry": "2.1.*"
 	},
 	"autoload": {
 		"classmap": [

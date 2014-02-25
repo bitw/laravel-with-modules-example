@@ -2,7 +2,7 @@
 
 use Sentry, Redirect, View;
 
-class UsersController {
+class UsersController extends \BaseController {
 
 	public function getSignin()
 	{
