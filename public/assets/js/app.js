@@ -15,7 +15,7 @@ App.controller('ctrlHome', function($scope, $route, $routeParams, $location){
     $scope.$routeParams = $routeParams;
 });
 
-App.controller('ctrlForeigner', function($scope, $routeParams){
+App.controller('ctrlForeigner', function($scope, $routeParams, $http){
     $scope.name = "ctrlForeigner";
     $scope.params = $routeParams;
 

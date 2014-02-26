@@ -11,6 +11,6 @@ use \BaseController;
 class KiFormController extends BaseController
 {
     public function getForm($form){
-        return View::make("kiform.$form");
+        //return View::make("kiform.$form");
     }
 }

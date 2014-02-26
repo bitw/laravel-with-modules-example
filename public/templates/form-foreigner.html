@@ -224,10 +224,10 @@
     </tr>
     <tr>
         <td>Transfer price per person <span ng-model="data.air_departure_transfer_price"
-                                            ng-init="data.air_departure_transfer_price=15">{{data.air_arrival_transfer_price|number:2}}</span> &euro;
+                                            ng-init="data.air_departure_transfer_price=15">{{data.air_departure_transfer_price|number:2}}</span> &euro;
         </td>
         <td>Persons</td>
-        <td><input type="number" ng-model="data.air_eure_number_persons" ng-init="data.air_departure_number_persons=0"
+        <td><input type="number" ng-model="data.air_departure_number_persons" ng-init="data.air_departure_number_persons=0"
                    min="0"/></td>
         <td>{{(data.air_departure_transfer_price*data.air_departure_number_persons)|number:2}} &euro;</td>
     </tr>
