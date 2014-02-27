@@ -110,7 +110,7 @@ class KiFormController extends \BaseController
 
         $crc = strtoupper($crc);
 
-        $my_crc = strtoupper(md5("$out_summ:$inv_id:$mrh_pass2:Shp_item=$shp_paid_key"));
+        $my_crc = strtoupper(md5("$out_summ:$inv_id:$mrh_pass2:Shp_item=$shp_paid_key:Shp_user_email=$shp_user_email"));
 
         // проверка корректности подписи
         // check signature
@@ -196,6 +196,7 @@ class KiFormController extends \BaseController
         // тип товара
         // code of goods
         $shp_paid_key = $order->key;
+        $shp_user_email = $order->email;
 
         // предлагаемая валюта платежа
         // default payment e-currency
@@ -207,7 +208,7 @@ class KiFormController extends \BaseController
 
         // формирование подписи
         // generate signature
-        $crc  = md5("$mrh_login:$out_summ:$inv_id:$mrh_pass1:Shp_paid_key=$shp_paid_key");
+        $crc  = md5("$mrh_login:$out_summ:$inv_id:$mrh_pass1:Shp_paid_key=$shp_paid_key:Shp_user_email=$shp_user_email");
 
         // форма оплаты товара
         // payment form
