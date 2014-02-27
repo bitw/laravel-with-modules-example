@@ -203,7 +203,7 @@ class KiFormController extends \BaseController
 
         // язык
         // language
-        $culture = "en";
+        $culture = "ru";
 
         // формирование подписи
         // generate signature
