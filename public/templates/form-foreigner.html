@@ -29,9 +29,9 @@
     <pre>excursion_persons: {{data.excursion_persons=1}}</pre>
     <pre>gala_persons: {{data.gala_persons=1}}</pre>
 -->
-    <h4>REGISTRATION FORM</h4>
+    <h1>REGISTRATION FORM</h1>
+    <h3>Deadline: 15 may 2014</h3>
     <table class="table">
-        <caption>Deadline: 15 may 2014</caption>
         <thead>
         <tr>
             <th>Registration</th>
@@ -351,13 +351,11 @@
     <h4>ACCOMODATION</h4>
     <table class="table">
         <thead>
-        <tr>
             <th>Hotel</th>
-            <td>Category</td>
-            <td>Per person</td>
-            <td>Number of nights</td>
-            <td>Total amount</td>
-        </tr>
+            <th>Category</th>
+            <th>Per person</th>
+            <th>Number of nights</th>
+            <th>Total amount</th>
         </thead>
         <tbody>
         <tr>
@@ -407,8 +405,8 @@
             <td colspan="5">Cancellation fees may be charged</td>
         </tr>
         <tr>
-            <td colspan="4">TOTAL:</td>
-            <td colspan="1"><strong>
+            <td colspan="4"><h3>TOTAL:</h3></td>
+            <td colspan="1"><h3>
                 {{data.total=
                     ((data.air_arrival_transfer_price*data.air_arrival_number_persons)
                     +(data.rail_arrival_transfer_price*data.rail_arrival_number_persons)
@@ -425,7 +423,7 @@
                     +(data.tourist_single_price*data.tourist_single_nights)
                     +(data.tourist_double_price*data.tourist_double_nights))
                     |number:2
-                }}</strong> &euro;
+                }}&nbsp;&euro;</h3>
             </td>
         </tr>
         </tbody>

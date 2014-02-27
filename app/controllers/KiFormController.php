@@ -32,9 +32,132 @@ class KiFormController extends \BaseController
 
     }
 
-    public function Paid($status)
+    public function Result()
     {
-        return Response::json(Input::all());
+        // регистрационная информация (пароль #2)
+        // registration info (password #2)
+        $mrh_pass2 = "kirf_pass#2";
+
+        //установка текущего времени
+        //current date
+        $tm=getdate(time()+9*3600);
+        $date="$tm[year]-$tm[mon]-$tm[mday] $tm[hours]:$tm[minutes]:$tm[seconds]";
+
+        // чтение параметров
+        // read parameters
+        $out_summ       = Input::get("OutSum");
+        $inv_id         = Input::get("InvId");
+        $shp_paid_key   = Input::get("Shp_paid_key");
+        $shp_user_email = Input::get("Shp_user_email");
+        $crc            = Input::get("SignatureValue");
+
+        $crc = strtoupper($crc);
+
+        $my_crc = strtoupper(md5("$out_summ:$inv_id:$mrh_pass2:Shp_paid_key=$shp_paid_key"));
+
+        // проверка корректности подписи
+        // check signature
+        if ($my_crc !=$crc)
+        {
+            return "bad sign\n";
+        }
+
+        // признак успешно проведенной операции
+        // success
+        //echo "OK$inv_id\n";
+
+        // запись информации о прведенной операции
+        // save order info
+        /*
+        $f=@fopen("order.txt","a+") or
+            die("error");
+        fputs($f,"order_num :$inv_id;Summ :$out_summ;Date :$date\n");
+        fclose($f);
+        */
+        $check = Foreigner::where('key', '=', $shp_paid_key)->where('email', '=', $shp_user_email)->get()->first();
+
+        $check->paid = true;
+        $check->billing_information = serialize(Input::all());
+
+        $check->save();
+
+        return "Ok\n";
+    }
+
+    public function Fail()
+    {
+        $inv_id = $_REQUEST["InvId"];
+        echo "Вы отказались от оплаты. Заказ# $inv_id\n";
+        echo "You have refused payment. Order# $inv_id\n";
+        return;
+    }
+
+    public function Success()
+    {
+        // регистрационная информация (пароль #1)
+        // registration info (password #1)
+        $mrh_pass2 = "kirf_pass#1";
+
+        // чтение параметров
+        // read parameters
+        $out_summ = Input::get("OutSum");
+        $inv_id = Input::get("InvId");
+        $shp_paid_key = Input::get("Shp_paid_key");
+        $shp_user_email = Input::get("Shp_user_email");
+        $crc = Input::get("SignatureValue");
+
+        $crc = strtoupper($crc);
+
+        $my_crc = strtoupper(md5("$out_summ:$inv_id:$mrh_pass2:Shp_item=$shp_paid_key"));
+
+        // проверка корректности подписи
+        // check signature
+        if ($my_crc !=$crc)
+        {
+            return "bad sign\n";
+        }
+
+        // проверка наличия номера счета в истории операций
+        // check of number of the order info in history of operations
+        /*
+        $f=@fopen("order.txt","r+") or die("error");
+
+        while(!feof($f))
+        {
+            $str=fgets($f);
+
+            $str_exp = explode(";", $str);
+            if ($str_exp[0]=="order_num :$inv_id")
+            {
+                echo "Операция прошла успешно\n";
+                echo "Operation of payment is successfully completed\n";
+            }
+        }
+        fclose($f);
+        */
+
+        $check = Foreigner::where('key', '=', $shp_paid_key)->where('email', '=', $shp_user_email)->get()->first();
+
+        if(!$check)
+        {
+            // Account will not find
+            return View::make('foreigner.success', array(
+                'result'    => -1
+            ))->render();
+        }
+
+        if($check && $check->paid == 0)
+        {
+            // Account of non-payment or even still in the processing queue.
+            return View::make('foreigner.success', array(
+                'result'    => 0
+            ))->render();
+        }
+
+        //The bill is paid.
+        return View::make('foreigner.success', array(
+            'result'    => 1
+        ))->render();
     }
 
     public function cancelCheck($key, $email)

@@ -14,6 +14,6 @@
     <input type=hidden name=Shp_paid_key value="<?=$shp_paid_key?>"/>
     <input type=hidden name=Shp_user_email value="<?=$order->email?>"/>
 
-    <button class="btn btn-default" type="button" onclick="window.location.href='/form/foreigner/cancel/<?=$shp_paid_key?>/<?=$order->email?>'">Cancel</button>&nbsp;<button class="btn btn-primary" type="submit">Go to payment</button>
+    <button class="btn btn-default" type="button" onclick="window.location.href='<?=route('kiform.cancel_check', array('key'=>$shp_paid_key, 'email'=>$order->email))?>'">Cancel</button>&nbsp;<button class="btn btn-primary" type="submit">Go to payment</button>
 
 </form>
