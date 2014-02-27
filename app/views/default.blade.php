@@ -37,20 +37,9 @@
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
         your browser</a> to improve your experience.</p>
     <![endif]-->
-    <div ng-controller="ctrlHome">
-        <div ng-view></div>
-
-        <hr/>
-        <pre>$location.path() = {{$location.path()}}</pre>
-        <pre>$route.current.templateUrl = {{$route.current.templateUrl}}</pre>
-        <pre>$route.current.params = {{$route.current.params}}</pre>
-        <pre>$route.current.scope.name = {{$route.current.scope.name}}</pre>
-        <pre>$routeParams = {{$routeParams}}</pre>
-
-    </div>
+    <div ng-controller="ctrlHome"><div ng-view></div></div>
     <hr/>
     <div>Developed by <a href="http://wbtm.ru">wbtm.ru</a></div>
-
     <script src="http://code.angularjs.org/1.2.13/angular.min.js"></script>
     <script src="http://code.angularjs.org/1.2.13/angular-sanitize.min.js"></script>
     <script src="http://code.angularjs.org/1.2.13/angular-route.min.js"></script>
