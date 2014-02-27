@@ -222,7 +222,7 @@ class KiFormController extends \BaseController
             'crc'           => $crc,
             'order'         => $order,
         );
-        var_dump($data);
+
         return View::make('confirmation_paid', $data)->render();
     }
 }
