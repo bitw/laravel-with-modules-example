@@ -1,4 +1,5 @@
-<form action="https://merchant.roboxchange.com/Index.aspx" method=POST>
+<!--form action="https://merchant.roboxchange.com/Index.aspx" method=POST-->
+<form action="http://test.robokassa.ru/Index.aspx" method=POST>
 
     <h3>Payment for: <?=$order->name?>&nbsp;<?=$order->surname?></h3>
     <h4>Amount: <strong><?=$out_summ?></strong> &euro;</h4>
