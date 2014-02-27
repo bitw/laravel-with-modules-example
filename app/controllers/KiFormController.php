@@ -113,6 +113,7 @@ class KiFormController extends \BaseController
         $my_crc = strtoupper(md5("$out_summ:$inv_id:$mrh_pass1:Shp_item=$shp_paid_key:Shp_user_email=$shp_user_email"));
 echo $crc."<br/>\n";
 echo $my_crc;
+        exit;
         // проверка корректности подписи
         // check signature
         if ($my_crc !=$crc)
