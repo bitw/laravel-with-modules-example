@@ -15,9 +15,17 @@ App.controller('ctrlHome', function($scope, $route, $routeParams, $location){
     $scope.$routeParams = $routeParams;
 });
 
-App.controller('ctrlForeigner', function($scope, $routeParams, $http){
+App.controller('ctrlForeigner', function($scope, $routeParams, $http, $sce){
     $scope.name = "ctrlForeigner";
     $scope.params = $routeParams;
+
+    $scope.form = {
+        show: true
+    };
+    $scope.paid = {
+        form: '',
+        show: false
+    };
 
     $scope.changeArrivalMethod = function(){
         if($scope.data.arrival_method=='air'){
@@ -49,11 +57,20 @@ App.controller('ctrlForeigner', function($scope, $routeParams, $http){
         }
     };
 
+    $scope.back = function(){
+        $scope.paid.show = false;
+        $scope.form.show = true;
+    }
+
     $scope.submit = function(){
+        $scope.form.show = false;
         $http({
             method:'post',
             url:'/kiform/foreigner',
             data:$scope.data
+        }).success(function(response, status){
+            $scope.paid.form = $sce.trustAsHtml(response.html);
+            $scope.paid.show = true;
         });
     }
 });

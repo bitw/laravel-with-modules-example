@@ -18,6 +18,10 @@ Route::get('/', array(
     'as' => 'index', 'uses' => 'HomeController@getIndex'
 ));
 
-Route::get('kiform/form-{form}.html', array(
-    'as' => 'kiform', 'uses'=> 'KiFormController@getForm'
+Route::post('kiform/foreigner', array(
+    'as' => 'kiform', 'uses'=> 'KiFormController@postForm'
+));
+
+Route::get('form/{status}', array(
+    'as' => 'kiform.paid', 'uses' => 'KiFormController@Paid'
 ));
