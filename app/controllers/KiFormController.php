@@ -34,9 +34,9 @@ class KiFormController extends \BaseController
 
     public function Result()
     {
-        // регистрационная информация (пароль #1)
-        // registration info (password #1)
-        $mrh_pass2 = "kirf_pass#1";
+        // регистрационная информация (пароль #2)
+        // registration info (password #2)
+        $mrh_pass2 = "kirf_pass#2";
 
         //установка текущего времени
         //current date
@@ -55,7 +55,7 @@ class KiFormController extends \BaseController
 
         $crc = strtoupper($crc);
 
-        $my_crc = strtoupper(md5("$out_summ:$inv_id:$mrh_pass1:Shp_paid_key=$shp_paid_key"));
+        $my_crc = strtoupper(md5("$out_summ:$inv_id:$mrh_pass2:Shp_paid_key=$shp_paid_key"));
 
         // проверка корректности подписи
         // check signature
@@ -220,6 +220,7 @@ echo $my_crc;
             'inv_desc'      => $inv_desc,
             'out_summ'      => $out_summ,
             'shp_paid_key'  => $shp_paid_key,
+            'shp_user_email'=> $shp_user_email,
             'in_curr'       => $in_curr,
             'culture'       => $culture,
             'crc'           => $crc,
