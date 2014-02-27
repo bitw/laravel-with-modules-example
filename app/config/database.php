@@ -45,16 +45,16 @@ return array(
 	*/
 
 	'connections' => array(
-
+/*
 		'sqlite' => array(
 			'driver'   => 'sqlite',
 			'database' => __DIR__.'/../database/production.sqlite',
 			'prefix'   => '',
 		),
-
+*/
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => '127.0.0.1',
+			'host'      => 'localhost',
 			'database'  => 'form_ki_rf',
 			'username'  => 'form_ki_rf',
 			'password'  => 'ZWNBCi0P',
@@ -62,7 +62,7 @@ return array(
 			'collation' => 'utf8_general_ci',
 			'prefix'    => '',
 		),
-
+/*
 		'pgsql' => array(
 			'driver'   => 'pgsql',
 			'host'     => 'localhost',
@@ -82,7 +82,7 @@ return array(
 			'password' => '',
 			'prefix'   => '',
 		),
-
+*/
 	),
 
 	/*
