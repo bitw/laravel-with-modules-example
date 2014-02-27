@@ -1,412 +1,443 @@
-<form action="" method="post">
-<h4>REGISTRATION FORM</h4>
-<table class="table">
-    <caption>Deadline: 15 may 2014</caption>
-    <thead>
-    <tr>
-        <th>Registration</th>
-        <th>Participant</th>
-        <th>Accompanying person 1
-            <input type="checkbox" ng-model="data.accompanying1" ng-init="data.accompanying1=false" ng-change="changeAccompanying1()">
-        </th>
-        <th>
-            <span ng-show="data.accompanying1">Accompanying person 2
-                <input type="checkbox" ng-model="data.accompanying2" ng-init="data.accompanying2=false">
-            </span>
-        </th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>Name (First Name)</td>
-        <td><input type="text" ng-model="data.participant.name" ng-required="true" maxlength="20"/></td>
-        <td><input type="text" ng-model="data.accompanying1.name" ng-show="data.accompanying1"
-                   ng-required="data.accompanying1"/></td>
-        <td><input type="text" ng-model="data.accompanying2.name" ng-show="data.accompanying1 && data.accompanying2"
-                   ng-required="data.accompanying1 && data.accompanying2"/></td>
-    </tr>
-    <tr>
-        <td>Surname (Family Name)</td>
-        <td><input type="text" ng-model="data.participant.surname" ng-required="true" maxlength="20"/></td>
-        <td><input type="text" ng-model="data.accompanying1.surname" ng-show="data.accompanying1"
-                   ng-required="data.accompanying1"/></td>
-        <td><input type="text" ng-model="data.accompanying2.surname" ng-show="data.accompanying1 && data.accompanying2"
-                   ng-required="data.accompanying1 && data.accompanying2"/></td>
-    </tr>
-    <tr>
-        <td>Organization</td>
-        <td><input type="text" ng-model="data.participant.organization" ng-required="true" maxlength="50"/></td>
-        <td><input type="text" ng-model="data.accompanying1.organization" ng-show="data.accompanying1"
-                   ng-required="data.accompanying1"/></td>
-        <td><input type="text" ng-model="data.accompanying2.organization"
-                   ng-show="data.accompanying1 && data.accompanying2"
-                   ng-required="data.accompanying1 && data.accompanying2"/></td>
-    </tr>
-    <tr>
-        <td>Position</td>
-        <td><input type="text" ng-model="data.participant.position" ng-required="true"/></td>
-        <td><input type="text" ng-model="data.accompanying1.position" ng-show="data.accompanying1"
-                   ng-required="data.accompanying1"/></td>
-        <td><input type="text" ng-model="data.accompanying2.position" ng-show="data.accompanying1 && data.accompanying2"
-                   ng-required="data.accompanying1 && data.accompanying2"/></td>
-    </tr>
-    <tr>
-        <td>Address (organization)</td>
-        <td><input type="text" ng-model="data.participant.address_org" ng-required="true"/></td>
-        <td><input type="text" ng-model="data.accompanying1.address_org" ng-show="data.accompanying1"
-                   ng-required="data.accompanying1"/></td>
-        <td><input type="text" ng-model="data.accompanying2.address_org"
-                   ng-show="data.accompanying1 && data.accompanying2"
-                   ng-required="data.accompanying1 && data.accompanying2"/></td>
-    </tr>
-    <tr>
-        <td>Zip code / city</td>
-        <td><input type="text" ng-model="data.participant.zipcode_city_org" ng-required="true"/></td>
-        <td><input type="text" ng-model="data.accompanying1.zipcode_city_org" ng-show="data.accompanying1"
-                   ng-required="data.accompanying1"/></td>
-        <td><input type="text" ng-model="data.accompanying2.zipcode_city_org"
-                   ng-show="data.accompanying1 && data.accompanying2"
-                   ng-required="data.accompanying1 && data.accompanying2"/></td>
-    </tr>
-    <tr>
-        <td>Country</td>
-        <td><input type="text" ng-model="data.participant.country_org" ng-required="true"/></td>
-        <td><input type="text" ng-model="data.accompanying1.country_org" ng-show="data.accompanying1"
-                   ng-required="data.accompanying1"/></td>
-        <td><input type="text" ng-model="data.accompanying2.country_org"
-                   ng-show="data.accompanying1 && data.accompanying2"
-                   ng-required="data.accompanying1 && data.accompanying2"/></td>
-    </tr>
-    <tr>
-        <td>Adddress (personal)</td>
-        <td><input type="text" ng-model="data.participant.address_pers"/></td>
-        <td><input type="text" ng-model="data.accompanying1.address_pers" ng-show="data.accompanying1"/></td>
-        <td><input type="text" ng-model="data.accompanying2.address_pers"
-                   ng-show="data.accompanying1 && data.accompanying2"/></td>
-    </tr>
-    <tr>
-        <td>Zip code / city</td>
-        <td><input type="text" ng-model="data.participant.zipcode_city_pers"/></td>
-        <td><input type="text" ng-model="data.accompanying1.zipcode_city_pers" ng-show="data.accompanying1"/></td>
-        <td><input type="text" ng-model="data.accompanying2.zipcode_city_pers"
-                   ng-show="data.accompanying1 && data.accompanying2"/></td>
-    </tr>
-    <tr>
-        <td>Country</td>
-        <td><input type="text" ng-model="data.participant.country_pers"/></td>
-        <td><input type="text" ng-model="data.accompanying1.country_pers" ng-show="data.accompanying1"/></td>
-        <td><input type="text" ng-model="data.accompanying2.country_pers"
-                   ng-show="data.accompanying1 && data.accompanying2"/></td>
-    </tr>
-    <tr>
-        <td>Passport</td>
-        <td><input type="text" ng-model="data.participant.passport" ng-required="true"/></td>
-        <td><input type="text" ng-model="data.accompanying1.passport" ng-show="data.accompanying1"
-                   ng-required="data.accompanying1"/></td>
-        <td><input type="text" ng-model="data.accompanying2.passport" ng-show="data.accompanying1 && data.accompanying2"
-                   ng-required="data.accompanying1 && data.accompanying2"/></td>
-    </tr>
-    <tr>
-        <td>Date of expiry</td>
-        <td><input type="date" ng-model="data.participant.expiry" ng-required="true"/></td>
-        <td><input type="date" ng-model="data.accompanying1.expiry" ng-show="data.accompanying1"
-                   ng-required="data.accompanying1"/></td>
-        <td><input type="date" ng-model="data.accompanying2.expiry" ng-show="data.accompanying1 && data.accompanying2"
-                   ng-required="data.accompanying1 && data.accompanying2"/></td>
-    </tr>
-    <tr>
-        <td>Phone</td>
-        <td><input type="tel" ng-model="data.participant.phone" ng-required="true"/></td>
-        <td><input type="tel" ng-model="data.accompanying1.phone" ng-show="data.accompanying1"
-                   ng-required="data.accompanying1"/></td>
-        <td><input type="tel" ng-model="data.accompanying2.phone" ng-show="data.accompanying1 && data.accompanying2"
-                   ng-required="data.accompanying1 && data.accompanying2"/></td>
-    </tr>
-    <tr>
-        <td>Email</td>
-        <td><input type="email" ng-model="data.participant.email" ng-required="true"/></td>
-        <td><input type="email" ng-model="data.accompanying1.email" ng-show="data.accompanying1"
-                   ng-required="data.accompanying1"/></td>
-        <td><input type="email" ng-model="data.accompanying2.email" ng-show="data.accompanying1 && data.accompanying2"
-                   ng-required="data.accompanying1 && data.accompanying2"/></td>
-    </tr>
-    <tr>
-        <td>Other contact</td>
-        <td><input type="text" ng-model="data.participant.other_contact"/></td>
-        <td><input type="text" ng-model="data.accompanying1.other_contact" ng-show="data.accompanying1"/></td>
-        <td><input type="text" ng-model="data.accompanying2.other_contact"
-                   ng-show="data.accompanying1 && data.accompanying2"/></td>
-    </tr>
-    </tbody>
-</table>
-<br/>
-<h4>TREVEL INFORMATION</h4>
-<table>
-    <tbody>
-    <tr>
-        <td colspan="6"><h5>Arrival</h5></td>
-    </tr>
-    <tr>
-        <td rowspan="3"><input type="radio" name="arrival_method" value="air" ng-model="data.arrival_method"
-                               ng-change="changeArrivalMethod()" ng-required="true"/></td>
-        <td rowspan="3">Arrival at Hrabrovo Airport (Kaliningrad)</td>
-        <td>Arrival date</td>
-        <td><input type="date" ng-model="data.air_arrival_date" ng-required="data.arrival_method=='air'?true:false"/>
-        </td>
-        <td>Flight from</td>
-        <td><input type="text" ng-model="data.air_arrival_flight_from"
-                   ng-required="data.arrival_method=='air'?true:false"/></td>
-    </tr>
-    <tr>
-        <td>Arrival time</td>
-        <td><input type="time" ng-model="data.air_arrival_time" ng-required="data.arrival_method=='air'?true:false"/>
-        </td>
-        <td>Flight number</td>
-        <td><input type="text" ng-model="data.air_arrival_flight_number"
-                   ng-required="data.arrival_method=='air'?true:false"/></td>
-    </tr>
-    <tr>
-        <td>Transfer price per person <span ng-model="data.air_arrival_transfer_price"
-                                            ng-init="data.air_arrival_transfer_price=15">{{data.air_arrival_transfer_price|number:2}}</span> &euro;
-        </td>
-        <td>Persons</td>
-        <td><input type="number" ng-model="data.air_arrival_number_persons" ng-init="data.air_arrival_number_persons=0"
-                   min="0"/></td>
-        <td>{{(data.air_arrival_transfer_price*data.air_arrival_number_persons)|number:2}} &euro;</td>
-    </tr>
-    <tr>
-        <td rowspan="3"><input type="radio" name="arrival_method" value="rail" ng-model="data.arrival_method"
-                               ng-change="changeArrivalMethod()" ng-required="true"/></td>
-        <td rowspan="3">Arrival at Railway station (Kaliningrad)</td>
-        <td>Arrival date</td>
-        <td><input type="date" ng-model="data.rail_arrival_date" ng-required="data.arrival_method=='rail'?true:false"/>
-        </td>
-        <td>Train number</td>
-        <td><input type="text" ng-model="data.rail_train_number" ng-required="data.arrival_method=='rail'?true:false"/>
-        </td>
-    </tr>
-    <tr>
-        <td>Arrival time</td>
-        <td colspan="3"><input type="time" ng-model="data.rail_arrival_time"
-                               ng-required="data.arrival_method=='rail'?true:false"/></td>
-    </tr>
-    <tr>
-        <td>Transfer price per person <span ng-model="data.rail_arrival_transfer_price"
-                                            ng-init="data.rail_arrival_transfer_price=8">{{data.rail_arrival_transfer_price|number:2}}</span> &euro;
-        </td>
-        <td>Persons</td>
-        <td><input type="number" ng-model="data.rail_arrival_number_persons"
-                   ng-init="data.rail_arrival_number_persons=0" min="0"/></td>
-        <td>{{(data.rail_arrival_transfer_price*data.rail_arrival_number_persons)|number:2}} &euro;</td>
-    </tr>
+<form ng-submit="submit()" ng-show="form.show">
+    <pre>name: {{data.participant_name='name'}}</pre>
+    <pre>surname: {{data.participant_surname='surname'}}</pre>
+    <pre>position: {{data.participant_position='position'}}</pre>
+    <pre>address_org: {{data.participant_address_org='address_org'}}</pre>
+    <pre>zipcode_city_org: {{data.participant_zipcode_city_org='zipcode_city_org'}}</pre>
+    <pre>country_org: {{data.participant_country_org='country_org'}}</pre>
+    <pre>passport: {{data.participant_passport='passport'}}</pre>
+    <pre>expiry: {{data.participant_expiry='2000-12-10'}}</pre>
+    <pre>phone: {{data.participant_phone='phone'}}</pre>
+    <pre>email: {{data.participant_email='em@ail'}}</pre>
+    <pre>organization: {{data.participant_organization='participant_organization'}}</pre>
 
-    <tr>
-        <td colspan="6"><h5>Departure</h5></td>
-    </tr>
-    <tr>
-        <td rowspan="3"><input type="radio" name="departure_method" value="air" ng-model="data.departure_method"
-                               ng-change="changeDeparturelMethod()" ng-required="true"/></td>
-        <td rowspan="3">Departure from Hrabrovo Airport (Kaliningrad)</td>
-        <td>Departure date</td>
-        <td><input type="date" ng-model="data.air_depart_date" ng-required="data.departure_method=='air'?true:false"/>
-        </td>
-        <td>Flight to</td>
-        <td><input type="text" ng-model="data.air_depart_flight_to"
-                   ng-required="data.departure_method=='air'?true:false"/></td>
-    </tr>
-    <tr>
-        <td>Departure time</td>
-        <td><input type="time" ng-model="data.air_depart_time" ng-required="data.departure_method=='air'?true:false"/>
-        </td>
-        <td>Flight number</td>
-        <td><input type="text" ng-model="data.air_depart_flight_number"
-                   ng-required="data.departure_method=='air'?true:false"/></td>
-    </tr>
-    <tr>
-        <td>Transfer price per person <span ng-model="data.air_departure_transfer_price"
-                                            ng-init="data.air_departure_transfer_price=15">{{data.air_departure_transfer_price|number:2}}</span> &euro;
-        </td>
-        <td>Persons</td>
-        <td><input type="number" ng-model="data.air_departure_number_persons" ng-init="data.air_departure_number_persons=0"
-                   min="0"/></td>
-        <td>{{(data.air_departure_transfer_price*data.air_departure_number_persons)|number:2}} &euro;</td>
-    </tr>
-    <tr>
-        <td rowspan="3"><input type="radio" name="departure_method" value="rail" ng-model="data.departure_method"
-                               ng-change="changeDeparturelMethod()" ng-required="true"/></td>
-        <td rowspan="3">Departure from Railway station (Kaliningrad)</td>
-        <td>Departure date</td>
-        <td><input type="date" ng-model="data.rail_depart_date" ng-required="data.departure_method=='rail'?true:false"/>
-        </td>
-        <td>Train number</td>
-        <td><input type="text" ng-model="data.rail_depart_to" ng-required="data.departure_method=='rail'?true:false"/>
-        </td>
-    </tr>
-    <tr>
-        <td>Departure time</td>
-        <td colspan="3"><input type="time" ng-model="data.rail_depart_time"
-                               ng-required="data.departure_method=='rail'?true:false"/></td>
-    </tr>
+    <pre>arrival_method: {{data.arrival_method='air'}}</pre>
+    <pre>air_arrival_date: {{data.air_arrival_date='2014-05-08'}}</pre>
+    <pre>air_arrival_time: {{data.air_arrival_time='12:20'}}</pre>
+    <pre>air_arrival_flight_from: {{data.air_arrival_flight_from='flight_from'}}</pre>
+    <pre>air_arrival_flight_number: {{data.air_arrival_flight_number='flight_number'}}</pre>
 
-    <tr>
-        <td>Transfer price per person <span ng-model="data.air_arrival_transfer_price"
-                                            ng-init="data.rail_departure_transfer_price=8">{{data.rail_departure_transfer_price|number:2}}</span> &euro;
-        </td>
-        <td>Persons</td>
-        <td><input type="number" ng-model="data.rail_departure_number_persons"
-                   ng-init="data.rail_departure_number_persons=0" min="0"/></td>
-        <td>{{(data.rail_departure_transfer_price*data.rail_departure_number_persons)|number:2}} &euro;</td>
-    </tr>
-    </tbody>
-</table>
-<br/>
-<h4>REGISTRATION TO THE EVENT</h4>
-<table>
-    <thead>
-    <th></th>
-    <th>Per person</th>
-    <th>Number of person</th>
-    <th>Total amount</th>
-    </thead>
-    <tbody>
-    <tr>
-        <td><strong>CLGE conference</strong> (Incl. coffee breaks, lunch) 01-03 July 2014</td>
-        <td><span ng-model="data.clge_price" ng-init="data.clge_price=180">{{data.clge_price|number:2}}</span>&euro;
-        </td>
-        <td><input type="number" ng-model="data.clge_persons" ng-init="data.clge_persons=0" min="0"/></td>
-        <td>{{(data.clge_price*data.clge_persons)|number:2}} &euro;</td>
-    </tr>
-    <tr>
-        <td><strong>Dinner</strong><br/>
-            01 July 2014, 7-9:30 pm
-        </td>
-        <td><span ng-model="data.dinner_price" ng-init="data.dinner_price=40">{{data.dinner_price|number:2}}</span>&euro;
-        </td>
-        <td><input type="number" ng-model="data.dinner_persons" ng-init="data.dinner_persons=0" min="0"/></td>
-        <td>{{(data.dinner_price*data.dinner_persons)|number:2}} &euro;</td>
-    </tr>
-    <tr>
-        <td><strong>Accompanying person</strong> Incl. lunch, excursion)<br/>
-            According the <i><strong>programm <a href="#">сделать ссылку</a></strong></i> 01-03 Juli 2014
-        </td>
-        <td><span ng-model="data.accompanying_price" ng-init="data.accompanying_price=130">{{data.accompanying_price|number:2}}</span>&euro;
-        </td>
-        <td><input type="number" ng-model="data.accompanying_persons" ng-init="data.accompanying_persons=0" min="0"/>
-        </td>
-        <td>{{(data.accompanying_price*data.accompanying_persons)|number:2}} &euro;</td>
-    </tr>
-    <tr>
-        <td><strong>Excursion to the Curonian spit</strong><br/>
-            (Incl. lunch) 03 July 2014, 12 - 6 pm
-        </td>
-        <td><span ng-model="data.excursion_price"
-                  ng-init="data.excursion_price=40">{{data.excursion_price|number:2}}</span>&euro;</td>
-        <td><input type="number" ng-model="data.excursion_persons" ng-init="data.excursion_persons=0" min="0"/></td>
-        <td>{{(data.excursion_price*data.excursion_persons)|number:2}} &euro;</td>
-    </tr>
-    <tr>
-        <td><strong>Gala-diner with variety show (restaurant
-            <a href="http://rk-rk.ru">Residence of the King</a>)</strong><br/>
-            (Incl. lunch) 02 July 2014, 7 - 12 midnight
-        </td>
-        <td><span ng-model="data.gala_price" ng-init="data.gala_price=120">{{data.gala_price|number:2}}</span>&euro;
-        </td>
-        <td><input type="number" ng-model="data.gala_persons" ng-init="data.gala_persons=0" min="0"/></td>
-        <td>{{(data.gala_price*data.gala_persons)|number:2}} &euro;</td>
-    </tr>
-    </tbody>
-</table>
-<br/>
-<h4>ACCOMODATION</h4>
-<table>
-    <thead>
-    <tr>
-        <th>Hotel</th>
-        <td>Category</td>
-        <td>Per person</td>
-        <td>Number of nights</td>
-        <td>Total amount</td>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td rowspan="3"><strong><a href="http://www.radisson.ru/hotel-kaliningrad" target="_blank">Radisson</a></strong>
-        </td>
-        <td>Single Standart room</td>
-        <td><span ng-model="data.radisson_single_price" ng-init="data.radisson_single_price=113">{{data.radisson_single_price|number:2}} &euro;</span>
-        </td>
-        <td><input type="number" ng-model="data.radisson_single_nights" ng-init="data.radisson_single_nights=0" min="0"
-                   value="1"></td>
-        <td>{{(data.radisson_single_price*data.radisson_single_nights)|number:2}} &euro;</td>
-    </tr>
-    <tr>
-        <td>Double Standart room</td>
-        <td><span ng-model="data.radisson_double_price" ng-init="data.radisson_double_price=129">{{data.radisson_double_price|number:2}} &euro;</span>
-        </td>
-        <td><input type="number" ng-model="data.radisson_double_nights" ng-init="data.radisson_double_nights=0" min="0"
-                   value="1"></td>
-        <td>{{(data.radisson_double_price*data.radisson_double_nights)|number:2}} &euro;</td>
-    </tr>
-    <tr>
-        <td>Single Business Class room</td>
-        <td><span ng-model="data.radisson_single_business_price" ng-init="data.radisson_single_business_price=141">{{data.radisson_single_business_price|number:2}} &euro;</span>
-        </td>
-        <td><input type="number" ng-model="data.radisson_single_business_nights"
-                   ng-init="data.radisson_single_business_nights=0" min="0" value="1"></td>
-        <td>{{(data.radisson_single_business_price*data.radisson_single_business_nights)|number:2}} &euro;</td>
-    </tr>
-    <tr>
-        <td rowspan="2"><strong><a href="http://www.hotel-tourist.ru" target="_blank">Tourist</a></strong></td>
-        <td>Single room</td>
-        <td><span ng-model="data.tourist_single_price" ng-init="data.tourist_single_price=71">{{data.tourist_single_price|number:2}} &euro;</span>
-        </td>
-        <td><input type="number" ng-model="data.tourist_single_nights" ng-init="data.tourist_single_nights=0" min="0"
-                   value="1"></td>
-        <td>{{(data.tourist_single_price*data.tourist_single_nights)|number:2}} &euro;</td>
-    </tr>
-    <tr>
-        <td>Double room</td>
-        <td><span ng-model="data.tourist_double_price" ng-init="data.tourist_double_price=87">{{data.tourist_double_price|number:2}} &euro;</span>
-        </td>
-        <td><input type="number" ng-model="data.tourist_double_nights" ng-init="data.tourist_double_nights=0" min="0"
-                   value="1"></td>
-        <td>{{(data.tourist_double_price*data.tourist_double_nights)|number:2}} &euro;</td>
-    </tr>
-    <tr>
-        <td colspan="5">Cancellation fees may be charged</td>
-    </tr>
-    <tr>
-        <td colspan="4">TOTAL:</td>
-        <td colspan="1"><strong>
-            {{
-            ((data.air_arrival_transfer_price*data.air_arrival_number_persons)
-            +(data.rail_arrival_transfer_price*data.rail_arrival_number_persons)
-            +(data.air_departure_transfer_price*data.air_departure_number_persons)
-            +(data.rail_departure_transfer_price*data.rail_departure_number_persons)
-            +(data.clge_price*data.clge_persons)
-            +(data.dinner_price*data.dinner_persons)
-            +(data.accompanying_price*data.accompanying_persons)
-            +(data.excursion_price*data.excursion_persons)
-            +(data.gala_price*data.gala_persons)
-            +(data.radisson_single_price*data.radisson_single_nights)
-            +(data.radisson_double_price*data.radisson_double_nights)
-            +(data.radisson_single_business_price*data.radisson_single_business_nights)
-            +(data.tourist_single_price*data.tourist_single_nights)
-            +(data.tourist_double_price*data.tourist_double_nights))
-            |number:2
-            }}</strong> &euro;
-        </td>
-    </tr>
-    </tbody>
-</table>
-<br/>
-<h4>CANCELLATION AND REFUND </h4>
+    <pre>departure_method: {{data.departure_method='rail'}}</pre>
+    <pre>rail_depart_date: {{data.rail_depart_date='2014-10-02'}}</pre>
+    <pre>rail_depart_time: {{data.rail_depart_time='12:20'}}</pre>
+    <pre>rail_depart_train_number: {{data.rail_depart_train_number='train_number'}}</pre>
 
-<p>Cancellations must be notified in writing to the N.C.P. "National chamber of cadastral engeneers".
-    (<a href="mailto:ki-rf@ya.ru">ki-rf@ya.ru</a>)<br/>
-    <strong>Registration and social fee's:</strong><br/>
-    * By May 30, 2014 - 100%<br/>
-    * After May 30, 2014 - No refund.
-</p>
-<button type="submit">Continue</button>
+    <pre>clge_persons: {{data.clge_persons=1}}</pre>
+    <pre>dinner_persons: {{data.dinner_persons=1}}</pre>
+    <pre>accompanying_persons: {{data.accompanying_persons=1}}</pre>
+    <pre>excursion_persons: {{data.excursion_persons=1}}</pre>
+    <pre>gala_persons: {{data.gala_persons=1}}</pre>
+
+    <h4>REGISTRATION FORM</h4>
+    <table class="table">
+        <caption>Deadline: 15 may 2014</caption>
+        <thead>
+        <tr>
+            <th>Registration</th>
+            <th>Participant</th>
+            <th>Accompanying person 1
+                <input type="checkbox" ng-model="data.accompanying1" ng-init="data.accompanying1=false" ng-change="changeAccompanying1()">
+            </th>
+            <th>
+                <span ng-show="data.accompanying1">Accompanying person 2
+                    <input type="checkbox" ng-model="data.accompanying2" ng-init="data.accompanying2=false">
+                </span>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Name (First Name)</td>
+            <td><input type="text" ng-model="data.participant_name" ng-required="true" maxlength="20"/></td>
+            <td><input type="text" ng-model="data.accompanying1_name" ng-show="data.accompanying1"
+                       ng-required="data.accompanying1"/></td>
+            <td><input type="text" ng-model="data.accompanying2_name" ng-show="data.accompanying1 && data.accompanying2"
+                       ng-required="data.accompanying1 && data.accompanying2"/></td>
+        </tr>
+        <tr>
+            <td>Surname (Family Name)</td>
+            <td><input type="text" ng-model="data.participant_surname" ng-required="true" maxlength="20"/></td>
+            <td><input type="text" ng-model="data.accompanying1_surname" ng-show="data.accompanying1"
+                       ng-required="data.accompanying1"/></td>
+            <td><input type="text" ng-model="data.accompanying2_surname" ng-show="data.accompanying1 && data.accompanying2"
+                       ng-required="data.accompanying1 && data.accompanying2"/></td>
+        </tr>
+        <tr>
+            <td>Organization</td>
+            <td><input type="text" ng-model="data.participant_organization" ng-required="true" maxlength="50"/></td>
+            <td><input type="text" ng-model="data.accompanying1_organization" ng-show="data.accompanying1"
+                       ng-required="data.accompanying1"/></td>
+            <td><input type="text" ng-model="data.accompanying2_organization"
+                       ng-show="data.accompanying1 && data.accompanying2"
+                       ng-required="data.accompanying1 && data.accompanying2"/></td>
+        </tr>
+        <tr>
+            <td>Position</td>
+            <td><input type="text" ng-model="data.participant_position" ng-required="true"/></td>
+            <td><input type="text" ng-model="data.accompanying1_position" ng-show="data.accompanying1"
+                       ng-required="data.accompanying1"/></td>
+            <td><input type="text" ng-model="data.accompanying2_position" ng-show="data.accompanying1 && data.accompanying2"
+                       ng-required="data.accompanying1 && data.accompanying2"/></td>
+        </tr>
+        <tr>
+            <td>Address (organization)</td>
+            <td><input type="text" ng-model="data.participant_address_org" ng-required="true"/></td>
+            <td><input type="text" ng-model="data.accompanying1_address_org" ng-show="data.accompanying1"
+                       ng-required="data.accompanying1"/></td>
+            <td><input type="text" ng-model="data.accompanying2_address_org"
+                       ng-show="data.accompanying1 && data.accompanying2"
+                       ng-required="data.accompanying1 && data.accompanying2"/></td>
+        </tr>
+        <tr>
+            <td>Zip code / city</td>
+            <td><input type="text" ng-model="data.participant_zipcode_city_org" ng-required="true"/></td>
+            <td><input type="text" ng-model="data.accompanying1_zipcode_city_org" ng-show="data.accompanying1"
+                       ng-required="data.accompanying1"/></td>
+            <td><input type="text" ng-model="data.accompanying2_zipcode_city_org"
+                       ng-show="data.accompanying1 && data.accompanying2"
+                       ng-required="data.accompanying1 && data.accompanying2"/></td>
+        </tr>
+        <tr>
+            <td>Country</td>
+            <td><input type="text" ng-model="data.participant_country_org" ng-required="true"/></td>
+            <td><input type="text" ng-model="data.accompanying1_country_org" ng-show="data.accompanying1"
+                       ng-required="data.accompanying1"/></td>
+            <td><input type="text" ng-model="data.accompanying2_country_org"
+                       ng-show="data.accompanying1 && data.accompanying2"
+                       ng-required="data.accompanying1 && data.accompanying2"/></td>
+        </tr>
+        <tr>
+            <td>Adddress (personal)</td>
+            <td><input type="text" ng-model="data.participant_address_pers"/></td>
+            <td><input type="text" ng-model="data.accompanying1_address_pers" ng-show="data.accompanying1"/></td>
+            <td><input type="text" ng-model="data.accompanying2_address_pers"
+                       ng-show="data.accompanying1 && data.accompanying2"/></td>
+        </tr>
+        <tr>
+            <td>Zip code / city</td>
+            <td><input type="text" ng-model="data.participant_zipcode_city_pers"/></td>
+            <td><input type="text" ng-model="data.accompanying1_zipcode_city_pers" ng-show="data.accompanying1"/></td>
+            <td><input type="text" ng-model="data.accompanying2_zipcode_city_pers"
+                       ng-show="data.accompanying1 && data.accompanying2"/></td>
+        </tr>
+        <tr>
+            <td>Country</td>
+            <td><input type="text" ng-model="data.participant_country_pers"/></td>
+            <td><input type="text" ng-model="data.accompanying1_country_pers" ng-show="data.accompanying1"/></td>
+            <td><input type="text" ng-model="data.accompanying2_country_pers"
+                       ng-show="data.accompanying1 && data.accompanying2"/></td>
+        </tr>
+        <tr>
+            <td>Passport</td>
+            <td><input type="text" ng-model="data.participant_passport" ng-required="true"/></td>
+            <td><input type="text" ng-model="data.accompanying1_passport" ng-show="data.accompanying1"
+                       ng-required="data.accompanying1"/></td>
+            <td><input type="text" ng-model="data.accompanying2_passport" ng-show="data.accompanying1 && data.accompanying2"
+                       ng-required="data.accompanying1 && data.accompanying2"/></td>
+        </tr>
+        <tr>
+            <td>Date of expiry</td>
+            <td><input type="date" ng-model="data.participant_expiry" ng-required="true"/></td>
+            <td><input type="date" ng-model="data.accompanying1_expiry" ng-show="data.accompanying1"
+                       ng-required="data.accompanying1"/></td>
+            <td><input type="date" ng-model="data.accompanying2_expiry" ng-show="data.accompanying1 && data.accompanying2"
+                       ng-required="data.accompanying1 && data.accompanying2"/></td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td><input type="tel" ng-model="data.participant_phone" ng-required="true"/></td>
+            <td><input type="tel" ng-model="data.accompanying1_phone" ng-show="data.accompanying1"
+                       ng-required="data.accompanying1"/></td>
+            <td><input type="tel" ng-model="data.accompanying2_phone" ng-show="data.accompanying1 && data.accompanying2"
+                       ng-required="data.accompanying1 && data.accompanying2"/></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="email" ng-model="data.participant_email" ng-required="true"/></td>
+            <td><input type="email" ng-model="data.accompanying1_email" ng-show="data.accompanying1"
+                       ng-required="data.accompanying1"/></td>
+            <td><input type="email" ng-model="data.accompanying2_email" ng-show="data.accompanying1 && data.accompanying2"
+                       ng-required="data.accompanying1 && data.accompanying2"/></td>
+        </tr>
+        <tr>
+            <td>Other contact</td>
+            <td><input type="text" ng-model="data.participant_other_contact"/></td>
+            <td><input type="text" ng-model="data.accompanying1_other_contact" ng-show="data.accompanying1"/></td>
+            <td><input type="text" ng-model="data.accompanying2_other_contact"
+                       ng-show="data.accompanying1 && data.accompanying2"/></td>
+        </tr>
+        </tbody>
+    </table>
+    <br/>
+    <h4>TREVEL INFORMATION</h4>
+    <table>
+        <tbody>
+        <tr>
+            <td colspan="6"><h5>Arrival</h5></td>
+        </tr>
+        <tr>
+            <td rowspan="3"><input type="radio" name="arrival_method" value="air" ng-model="data.arrival_method"
+                                   ng-change="changeArrivalMethod()" ng-required="true"/></td>
+            <td rowspan="3">Arrival at Hrabrovo Airport (Kaliningrad)</td>
+            <td>Arrival date</td>
+            <td><input type="date" ng-model="data.air_arrival_date" ng-required="data.arrival_method=='air'?true:false"/>
+            </td>
+            <td>Flight from</td>
+            <td><input type="text" ng-model="data.air_arrival_flight_from"
+                       ng-required="data.arrival_method=='air'?true:false"/></td>
+        </tr>
+        <tr>
+            <td>Arrival time</td>
+            <td><input type="time" ng-model="data.air_arrival_time" ng-required="data.arrival_method=='air'?true:false"/>
+            </td>
+            <td>Flight number</td>
+            <td><input type="text" ng-model="data.air_arrival_flight_number"
+                       ng-required="data.arrival_method=='air'?true:false"/></td>
+        </tr>
+        <tr>
+            <td>Transfer price per person <span ng-model="data.air_arrival_transfer_price"
+                                                ng-init="data.air_arrival_transfer_price=15">{{data.air_arrival_transfer_price|number:2}}</span> &euro;
+            </td>
+            <td>Persons</td>
+            <td><input type="number" ng-model="data.air_arrival_number_persons" ng-init="data.air_arrival_number_persons=0"
+                       min="0"/></td>
+            <td>{{(data.air_arrival_transfer_price*data.air_arrival_number_persons)|number:2}} &euro;</td>
+        </tr>
+        <tr>
+            <td rowspan="3"><input type="radio" name="arrival_method" value="rail" ng-model="data.arrival_method"
+                                   ng-change="changeArrivalMethod()" ng-required="true"/></td>
+            <td rowspan="3">Arrival at Railway station (Kaliningrad)</td>
+            <td>Arrival date</td>
+            <td><input type="date" ng-model="data.rail_arrival_date" ng-required="data.arrival_method=='rail'?true:false"/>
+            </td>
+            <td>Train number</td>
+            <td><input type="text" ng-model="data.rail_train_number" ng-required="data.arrival_method=='rail'?true:false"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Arrival time</td>
+            <td colspan="3"><input type="time" ng-model="data.rail_arrival_time"
+                                   ng-required="data.arrival_method=='rail'?true:false"/></td>
+        </tr>
+        <tr>
+            <td>Transfer price per person <span ng-model="data.rail_arrival_transfer_price"
+                                                ng-init="data.rail_arrival_transfer_price=8">{{data.rail_arrival_transfer_price|number:2}}</span> &euro;
+            </td>
+            <td>Persons</td>
+            <td><input type="number" ng-model="data.rail_arrival_number_persons"
+                       ng-init="data.rail_arrival_number_persons=0" min="0"/></td>
+            <td>{{(data.rail_arrival_transfer_price*data.rail_arrival_number_persons)|number:2}} &euro;</td>
+        </tr>
+
+        <tr>
+            <td colspan="6"><h5>Departure</h5></td>
+        </tr>
+        <tr>
+            <td rowspan="3"><input type="radio" name="departure_method" value="air" ng-model="data.departure_method"
+                                   ng-change="changeDeparturelMethod()" ng-required="true"/></td>
+            <td rowspan="3">Departure from Hrabrovo Airport (Kaliningrad)</td>
+            <td>Departure date</td>
+            <td><input type="date" ng-model="data.air_depart_date" ng-required="data.departure_method=='air'?true:false"/>
+            </td>
+            <td>Flight to</td>
+            <td><input type="text" ng-model="data.air_depart_flight_to"
+                       ng-required="data.departure_method=='air'?true:false"/></td>
+        </tr>
+        <tr>
+            <td>Departure time</td>
+            <td><input type="time" ng-model="data.air_depart_time" ng-required="data.departure_method=='air'?true:false"/>
+            </td>
+            <td>Flight number</td>
+            <td><input type="text" ng-model="data.air_depart_flight_number"
+                       ng-required="data.departure_method=='air'?true:false"/></td>
+        </tr>
+        <tr>
+            <td>Transfer price per person <span ng-model="data.air_departure_transfer_price"
+                                                ng-init="data.air_departure_transfer_price=15">{{data.air_departure_transfer_price|number:2}}</span> &euro;
+            </td>
+            <td>Persons</td>
+            <td><input type="number" ng-model="data.air_departure_number_persons" ng-init="data.air_departure_number_persons=0"
+                       min="0"/></td>
+            <td>{{(data.air_departure_transfer_price*data.air_departure_number_persons)|number:2}} &euro;</td>
+        </tr>
+        <tr>
+            <td rowspan="3"><input type="radio" name="departure_method" value="rail" ng-model="data.departure_method"
+                                   ng-change="changeDeparturelMethod()" ng-required="true"/></td>
+            <td rowspan="3">Departure from Railway station (Kaliningrad)</td>
+            <td>Departure date</td>
+            <td><input type="date" ng-model="data.rail_depart_date" ng-required="data.departure_method=='rail'?true:false"/>
+            </td>
+            <td>Train number</td>
+            <td><input type="text" ng-model="data.rail_depart_train_number" ng-required="data.departure_method=='rail'?true:false"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Departure time</td>
+            <td colspan="3"><input type="time" ng-model="data.rail_depart_time"
+                                   ng-required="data.departure_method=='rail'?true:false"/></td>
+        </tr>
+
+        <tr>
+            <td>Transfer price per person <span ng-model="data.air_arrival_transfer_price"
+                                                ng-init="data.rail_departure_transfer_price=8">{{data.rail_departure_transfer_price|number:2}}</span> &euro;
+            </td>
+            <td>Persons</td>
+            <td><input type="number" ng-model="data.rail_departure_number_persons"
+                       ng-init="data.rail_departure_number_persons=0" min="0"/></td>
+            <td>{{(data.rail_departure_transfer_price*data.rail_departure_number_persons)|number:2}} &euro;</td>
+        </tr>
+        </tbody>
+    </table>
+    <br/>
+    <h4>REGISTRATION TO THE EVENT</h4>
+    <table>
+        <thead>
+        <th></th>
+        <th>Per person</th>
+        <th>Number of person</th>
+        <th>Total amount</th>
+        </thead>
+        <tbody>
+        <tr>
+            <td><strong>CLGE conference</strong> (Incl. coffee breaks, lunch) 01-03 July 2014</td>
+            <td><span ng-model="data.clge_price" ng-init="data.clge_price=180">{{data.clge_price|number:2}}</span>&euro;
+            </td>
+            <td><input type="number" ng-model="data.clge_persons" ng-init="data.clge_persons=0" min="0"/></td>
+            <td>{{(data.clge_price*data.clge_persons)|number:2}} &euro;</td>
+        </tr>
+        <tr>
+            <td><strong>Dinner</strong><br/>
+                01 July 2014, 7-9:30 pm
+            </td>
+            <td><span ng-model="data.dinner_price" ng-init="data.dinner_price=40">{{data.dinner_price|number:2}}</span>&euro;
+            </td>
+            <td><input type="number" ng-model="data.dinner_persons" ng-init="data.dinner_persons=0" min="0"/></td>
+            <td>{{(data.dinner_price*data.dinner_persons)|number:2}} &euro;</td>
+        </tr>
+        <tr>
+            <td><strong>Accompanying person</strong> Incl. lunch, excursion)<br/>
+                According the <i><strong>programm <a href="#">сделать ссылку</a></strong></i> 01-03 Juli 2014
+            </td>
+            <td><span ng-model="data.accompanying_price" ng-init="data.accompanying_price=130">{{data.accompanying_price|number:2}}</span>&euro;
+            </td>
+            <td><input type="number" ng-model="data.accompanying_persons" ng-init="data.accompanying_persons=0" min="0"/>
+            </td>
+            <td>{{(data.accompanying_price*data.accompanying_persons)|number:2}} &euro;</td>
+        </tr>
+        <tr>
+            <td><strong>Excursion to the Curonian spit</strong><br/>
+                (Incl. lunch) 03 July 2014, 12 - 6 pm
+            </td>
+            <td><span ng-model="data.excursion_price"
+                      ng-init="data.excursion_price=40">{{data.excursion_price|number:2}}</span>&euro;</td>
+            <td><input type="number" ng-model="data.excursion_persons" ng-init="data.excursion_persons=0" min="0"/></td>
+            <td>{{(data.excursion_price*data.excursion_persons)|number:2}} &euro;</td>
+        </tr>
+        <tr>
+            <td><strong>Gala-diner with variety show (restaurant
+                <a href="http://rk-rk.ru">Residence of the King</a>)</strong><br/>
+                (Incl. lunch) 02 July 2014, 7 - 12 midnight
+            </td>
+            <td><span ng-model="data.gala_price" ng-init="data.gala_price=120">{{data.gala_price|number:2}}</span>&euro;
+            </td>
+            <td><input type="number" ng-model="data.gala_persons" ng-init="data.gala_persons=0" min="0"/></td>
+            <td>{{(data.gala_price*data.gala_persons)|number:2}} &euro;</td>
+        </tr>
+        </tbody>
+    </table>
+    <br/>
+    <h4>ACCOMODATION</h4>
+    <table>
+        <thead>
+        <tr>
+            <th>Hotel</th>
+            <td>Category</td>
+            <td>Per person</td>
+            <td>Number of nights</td>
+            <td>Total amount</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td rowspan="3"><strong><a href="http://www.radisson.ru/hotel-kaliningrad" target="_blank">Radisson</a></strong>
+            </td>
+            <td>Single Standart room</td>
+            <td><span ng-model="data.radisson_single_price" ng-init="data.radisson_single_price=113">{{data.radisson_single_price|number:2}} &euro;</span>
+            </td>
+            <td><input type="number" ng-model="data.radisson_single_nights" ng-init="data.radisson_single_nights=0" min="0"
+                       value="1"></td>
+            <td>{{(data.radisson_single_price*data.radisson_single_nights)|number:2}} &euro;</td>
+        </tr>
+        <tr>
+            <td>Double Standart room</td>
+            <td><span ng-model="data.radisson_double_price" ng-init="data.radisson_double_price=129">{{data.radisson_double_price|number:2}} &euro;</span>
+            </td>
+            <td><input type="number" ng-model="data.radisson_double_nights" ng-init="data.radisson_double_nights=0" min="0"
+                       value="1"></td>
+            <td>{{(data.radisson_double_price*data.radisson_double_nights)|number:2}} &euro;</td>
+        </tr>
+        <tr>
+            <td>Single Business Class room</td>
+            <td><span ng-model="data.radisson_single_business_price" ng-init="data.radisson_single_business_price=141">{{data.radisson_single_business_price|number:2}} &euro;</span>
+            </td>
+            <td><input type="number" ng-model="data.radisson_single_business_nights"
+                       ng-init="data.radisson_single_business_nights=0" min="0" value="1"></td>
+            <td>{{(data.radisson_single_business_price*data.radisson_single_business_nights)|number:2}} &euro;</td>
+        </tr>
+        <tr>
+            <td rowspan="2"><strong><a href="http://www.hotel-tourist.ru" target="_blank">Tourist</a></strong></td>
+            <td>Single room</td>
+            <td><span ng-model="data.tourist_single_price" ng-init="data.tourist_single_price=71">{{data.tourist_single_price|number:2}} &euro;</span>
+            </td>
+            <td><input type="number" ng-model="data.tourist_single_nights" ng-init="data.tourist_single_nights=0" min="0"
+                       value="1"></td>
+            <td>{{(data.tourist_single_price*data.tourist_single_nights)|number:2}} &euro;</td>
+        </tr>
+        <tr>
+            <td>Double room</td>
+            <td><span ng-model="data.tourist_double_price" ng-init="data.tourist_double_price=87">{{data.tourist_double_price|number:2}} &euro;</span>
+            </td>
+            <td><input type="number" ng-model="data.tourist_double_nights" ng-init="data.tourist_double_nights=0" min="0"
+                       value="1"></td>
+            <td>{{(data.tourist_double_price*data.tourist_double_nights)|number:2}} &euro;</td>
+        </tr>
+        <tr>
+            <td colspan="5">Cancellation fees may be charged</td>
+        </tr>
+        <tr>
+            <td colspan="4">TOTAL:</td>
+            <td colspan="1"><strong>
+                {{data.total=
+                    ((data.air_arrival_transfer_price*data.air_arrival_number_persons)
+                    +(data.rail_arrival_transfer_price*data.rail_arrival_number_persons)
+                    +(data.air_departure_transfer_price*data.air_departure_number_persons)
+                    +(data.rail_departure_transfer_price*data.rail_departure_number_persons)
+                    +(data.clge_price*data.clge_persons)
+                    +(data.dinner_price*data.dinner_persons)
+                    +(data.accompanying_price*data.accompanying_persons)
+                    +(data.excursion_price*data.excursion_persons)
+                    +(data.gala_price*data.gala_persons)
+                    +(data.radisson_single_price*data.radisson_single_nights)
+                    +(data.radisson_double_price*data.radisson_double_nights)
+                    +(data.radisson_single_business_price*data.radisson_single_business_nights)
+                    +(data.tourist_single_price*data.tourist_single_nights)
+                    +(data.tourist_double_price*data.tourist_double_nights))
+                    |number:2
+                }}</strong> &euro;
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br/>
+    <h4>CANCELLATION AND REFUND </h4>
+
+    <p>Cancellations must be notified in writing to the N.C.P. "National chamber of cadastral engeneers".
+        (<a href="mailto:ki-rf@ya.ru">ki-rf@ya.ru</a>)<br/>
+        <strong>Registration and social fee's:</strong><br/>
+        * By May 30, 2014 - 100%<br/>
+        * After May 30, 2014 - No refund.
+    </p>
+    <button type="submit" class="btn btn-primary pull-right">Continue</button>
+    <div class="clearfix"></div>
 </form>
+<div ng-show="paid.show" ng-bind-html="paid.form"></div>

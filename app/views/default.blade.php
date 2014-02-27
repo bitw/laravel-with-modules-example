@@ -15,6 +15,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <!--link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"-->
+    <style>
+        form.ng-valid {
+            /* стили для формы прошедшей проверку */
+        }
+        form.ng-invalid {
+            /* стили для формы не прошедшей проверку */
+        }
+        input.ng-valid {
+            /* стиди для полей прошедших проверку */
+            border: 1px solid grey;
+        }
+        input.ng-invalid {
+            /* стиди для полей не прошедших проверку */
+            border: 1px solid red;
+        }
+    </style>
 </head>
 <body class="container">
     <!--[if lt IE 7]>
@@ -22,20 +38,27 @@
         your browser</a> to improve your experience.</p>
     <![endif]-->
     <div ng-controller="ctrlHome">
+        <%--
         <div>
             <a href="#/">Home</a>&nbsp;
             <a href="#/foreigner">Foreigners</a>
         </div>
+        --%>
         <div ng-view></div>
+        <?/*
         <hr/>
         <pre>$location.path() = {{$location.path()}}</pre>
         <pre>$route.current.templateUrl = {{$route.current.templateUrl}}</pre>
         <pre>$route.current.params = {{$route.current.params}}</pre>
         <pre>$route.current.scope.name = {{$route.current.scope.name}}</pre>
         <pre>$routeParams = {{$routeParams}}</pre>
+        */?>
     </div>
+    <hr/>
+    <div>Developed by <a href="http://wbtm.ru">wbtm.ru</a></div>
 
     <script src="http://code.angularjs.org/1.2.13/angular.min.js"></script>
+    <script src="http://code.angularjs.org/1.2.13/angular-sanitize.min.js"></script>
     <script src="http://code.angularjs.org/1.2.13/angular-route.min.js"></script>
     <script src="<%asset('assets/js/app.js')%>"></script>
 </body>
