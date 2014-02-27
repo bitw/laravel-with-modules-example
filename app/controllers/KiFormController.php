@@ -36,7 +36,7 @@ class KiFormController extends \BaseController
     {
         // регистрационная информация (пароль #2)
         // registration info (password #2)
-        $mrh_pass2 = "kirf_pass#2";
+        $mrh_pass2 = "kiRFpass2";
 
         //установка текущего времени
         //current date
@@ -97,7 +97,7 @@ class KiFormController extends \BaseController
     {
         // регистрационная информация (пароль #1)
         // registration info (password #1)
-        $mrh_pass1 = "kirf_pass#1";
+        $mrh_pass1 = "kiRFpass1";
 
         // чтение параметров
         // read parameters
@@ -179,7 +179,7 @@ echo $my_crc;
         // регистрационная информация (логин, пароль #1)
         // registration info (login, password #1)
         $mrh_login = "kirf";
-        $mrh_pass1 = "kirf_pass#1";
+        $mrh_pass1 = "kiRFpass1";
 
         // номер заказа
         // number of order
