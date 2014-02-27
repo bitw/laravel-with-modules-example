@@ -38,21 +38,15 @@
         your browser</a> to improve your experience.</p>
     <![endif]-->
     <div ng-controller="ctrlHome">
-        <%--
-        <div>
-            <a href="#/">Home</a>&nbsp;
-            <a href="#/foreigner">Foreigners</a>
-        </div>
-        --%>
         <div ng-view></div>
-        <?/*
+
         <hr/>
         <pre>$location.path() = {{$location.path()}}</pre>
         <pre>$route.current.templateUrl = {{$route.current.templateUrl}}</pre>
         <pre>$route.current.params = {{$route.current.params}}</pre>
         <pre>$route.current.scope.name = {{$route.current.scope.name}}</pre>
         <pre>$routeParams = {{$routeParams}}</pre>
-        */?>
+
     </div>
     <hr/>
     <div>Developed by <a href="http://wbtm.ru">wbtm.ru</a></div>
