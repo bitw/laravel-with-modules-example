@@ -10,3 +10,14 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+
+Blade::setContentTags('<%', '%>'); 		// for variables and all things Blade
+Blade::setEscapedContentTags('<%%', '%%>'); 	// for escaped data
+
+Route::get('/', array(
+    'as' => 'index', 'uses' => 'HomeController@getIndex'
+));
+
+Route::get('kiform/form-{form}.html', array(
+    'as' => 'kiform', 'uses'=> 'KiFormController@getForm'
+));

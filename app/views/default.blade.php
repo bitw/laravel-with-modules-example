@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" id="ng-app" ng-app="App"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" id="ng-app" ng-app="App"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" id="ng-app" ng-app="App"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" id="ng-app" ng-app="App"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Flex Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <!--link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"-->
+</head>
+<body class="container">
+    <!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+        your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div ng-controller="ctrlHome">
+        <div>
+            <a href="#/">Home</a>&nbsp;
+            <a href="#/foreigner">Foreigners</a>
+        </div>
+        <div ng-view></div>
+        <hr/>
+        <pre>$location.path() = {{$location.path()}}</pre>
+        <pre>$route.current.templateUrl = {{$route.current.templateUrl}}</pre>
+        <pre>$route.current.params = {{$route.current.params}}</pre>
+        <pre>$route.current.scope.name = {{$route.current.scope.name}}</pre>
+        <pre>$routeParams = {{$routeParams}}</pre>
+    </div>
+
+    <script src="http://code.angularjs.org/1.2.13/angular.min.js"></script>
+    <script src="http://code.angularjs.org/1.2.13/angular-route.min.js"></script>
+    <script src="<%asset('assets/js/app.js')%>"></script>
+</body>
+</html>
