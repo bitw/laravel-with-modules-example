@@ -50,7 +50,6 @@ class KiFormController extends \BaseController
         $out_summ       = Input::get("OutSum");
         $inv_id         = Input::get("InvId");
         $shp_paid_key   = Input::get("Shp_paid_key");
-        $shp_user_email = Input::get("Shp_user_email");
         $crc            = Input::get("SignatureValue");
 
         $crc = strtoupper($crc);
@@ -76,7 +75,7 @@ class KiFormController extends \BaseController
         fputs($f,"order_num :$inv_id;Summ :$out_summ;Date :$date\n");
         fclose($f);
         */
-        $check = Foreigner::where('key', '=', $shp_paid_key)->where('email', '=', $shp_user_email)->get()->first();
+        $check = Foreigner::where('key', '=', $shp_paid_key)->get()->first();
 
         $check->paid = true;
         $check->billing_information = serialize(Input::all());
@@ -105,12 +104,11 @@ class KiFormController extends \BaseController
         $out_summ = Input::get("OutSum");
         $inv_id = Input::get("InvId");
         $shp_paid_key = Input::get("Shp_paid_key");
-        $shp_user_email = Input::get("Shp_user_email");
         $crc = Input::get("SignatureValue");
 
         $crc = strtoupper($crc);
 
-        $my_crc = strtoupper(md5("$out_summ:$inv_id:$mrh_pass1:Shp_item=$shp_paid_key:Shp_user_email=$shp_user_email"));
+        $my_crc = strtoupper(md5("$out_summ:$inv_id:$mrh_pass1:Shp_item=$shp_paid_key"));
 echo $crc."<br/>\n";
 echo $my_crc;
         exit;
@@ -140,7 +138,7 @@ echo $my_crc;
         fclose($f);
         */
 
-        $check = Foreigner::where('key', '=', $shp_paid_key)->where('email', '=', $shp_user_email)->get()->first();
+        $check = Foreigner::where('key', '=', $shp_paid_key)->get()->first();
 
         if(!$check)
         {
@@ -166,7 +164,7 @@ echo $my_crc;
 
     public function cancelCheck($key, $email)
     {
-        $check = Foreigner::where('key', '=', $key)->where('email', '=', $email)->get()->first();
+        $check = Foreigner::where('key', '=', $key)->get()->first();
 
         if($check) $check->delete();
 
@@ -198,7 +196,6 @@ echo $my_crc;
         // тип товара
         // code of goods
         $shp_paid_key = $order->key;
-        $shp_user_email = $order->email;
 
         // предлагаемая валюта платежа
         // default payment e-currency
@@ -210,7 +207,7 @@ echo $my_crc;
 
         // формирование подписи
         // generate signature
-        $crc  = md5("$mrh_login:$out_summ:$inv_id:$mrh_pass1:Shp_paid_key=$shp_paid_key:Shp_user_email=$shp_user_email");
+        $crc  = md5("$mrh_login:$out_summ:$inv_id:$mrh_pass1:Shp_paid_key=$shp_paid_key");
 
         // форма оплаты товара
         // payment form
@@ -220,7 +217,6 @@ echo $my_crc;
             'inv_desc'      => $inv_desc,
             'out_summ'      => $out_summ,
             'shp_paid_key'  => $shp_paid_key,
-            'shp_user_email'=> $shp_user_email,
             'in_curr'       => $in_curr,
             'culture'       => $culture,
             'crc'           => $crc,

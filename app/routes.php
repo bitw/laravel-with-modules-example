@@ -32,6 +32,6 @@ Route::get('form/fail', array(
     'as' => 'foreign.fail', 'uses' => 'KiFormController@Fail'
 ));
 
-Route::get('form/foreigner/cancel/{key}/{email}', array(
+Route::get('form/foreigner/cancel/{key}', array(
     'as' => 'kiform.cancel_check', 'uses' => 'KiFormController@cancelCheck'
 ));
