@@ -8,7 +8,8 @@
 		"raveren/kint": "dev-master",
 		"creolab/laravel-modules": "dev-master",
 		"fzaninotto/faker": "dev-master",
-		"cartalyst/sentry": "2.1.*"
+		"cartalyst/sentry": "2.1.*",
+		"barryvdh/laravel-ide-helper": "1.*"
 	},
 	"autoload": {
 		"classmap": [
@@ -28,6 +29,7 @@
 		],
 		"post-update-cmd": [
 			"php artisan clear-compiled",
+            "php artisan ide-helper:generate",
 			"php artisan optimize",
 			"php artisan modules:scan"
 		],

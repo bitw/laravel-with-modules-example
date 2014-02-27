@@ -37,16 +37,24 @@ class KiFormController extends \BaseController
         return Response::json(Input::all());
     }
 
+    public function cancelCheck($key, $email)
+    {
+        $check = Foreigner::where('key', '=', $key)->where('email', '=', $email)->get()->first();
+
+        if($check) $check->delete();
+
+        return Redirect::to('/#/foreigner');
+    }
+
     private function ConfirmationPaid($order)
     {
-        // 1.
-        // Оплата заданной суммы с выбором валюты на сайте мерчанта
-        // Payment of the set sum with a choice of currency on merchant site
+        // Оплата заданной суммы с выбором валюты на сайте ROBOKASSA
+        // Payment of the set sum with a choice of currency on site ROBOKASSA
 
         // регистрационная информация (логин, пароль #1)
         // registration info (login, password #1)
         $mrh_login = "kirf";
-        $mrh_pass1 = "korf_pass#1";
+        $mrh_pass1 = "kirf_pass#1";
 
         // номер заказа
         // number of order
@@ -72,19 +80,22 @@ class KiFormController extends \BaseController
         // language
         $culture = "en";
 
-        // кодировка
-        // encoding
-        $encoding = "utf-8";
-
         // формирование подписи
         // generate signature
-        $crc  = md5("$mrh_login:$out_summ:$inv_id:$mrh_pass1:Shp_item=$shp_paid_key");
+        $crc  = md5("$mrh_login:$out_summ:$inv_id:$mrh_pass1:Shp_paid_key=$shp_paid_key");
 
-        // HTML-страница с кассой
-        // ROBOKASSA HTML-page
-        return "https://merchant.roboxchange.com/Handler/MrchSumPreview.ashx?".
-            "MrchLogin=$mrh_login&OutSum=$out_summ&InvId=$inv_id&IncCurrLabel=$in_curr".
-            "&Desc=$inv_desc&SignatureValue=$crc&Shp_item=$shp_paid_key".
-            "&Culture=$culture&Encoding=$encoding\"";
+        // форма оплаты товара
+        // payment form
+        return View::make('confirmation_paid', array(
+            'mrh_login'     => $mrh_login,
+            'inv_id'        => $inv_id,
+            'inv_desc'      => $inv_desc,
+            'out_summ'      => $out_summ,
+            'shp_paid_key'  => $shp_paid_key,
+            'in_curr'       => $in_curr,
+            'culture'       => $culture,
+            'crc'           => $crc,
+            'order'         => $order,
+        ))->render();
     }
 }

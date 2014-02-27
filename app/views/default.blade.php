@@ -31,9 +31,6 @@
             border: 1px solid red;
         }
     </style>
-    <%--
-    <script type="text/javascript" src="https://merchant.roboxchange.com/Handler/MrchSumPreview.ashx?MrchLogin=kirf&amp;OutSum=510&amp;InvId=48&amp;IncCurrLabel=&amp;Desc=ROBOKASSA Advanced User Guide&amp;SignatureValue=68212d33f5249e002819368d2933629d&amp;Shp_item=cNzf1zuC&amp;Culture=en&amp;Encoding=utf-8"></script>
-    --%>
 </head>
 <body class="container">
     <!--[if lt IE 7]>
@@ -41,10 +38,12 @@
         your browser</a> to improve your experience.</p>
     <![endif]-->
     <div ng-controller="ctrlHome">
+        <%--
         <div>
             <a href="#/">Home</a>&nbsp;
             <a href="#/foreigner">Foreigners</a>
         </div>
+        --%>
         <div ng-view></div>
         <?/*
         <hr/>
@@ -55,6 +54,8 @@
         <pre>$routeParams = {{$routeParams}}</pre>
         */?>
     </div>
+    <hr/>
+    <div>Developed by <a href="http://wbtm.ru">wbtm.ru</a></div>
 
     <script src="http://code.angularjs.org/1.2.13/angular.min.js"></script>
     <script src="http://code.angularjs.org/1.2.13/angular-sanitize.min.js"></script>

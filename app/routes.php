@@ -25,3 +25,7 @@ Route::post('kiform/foreigner', array(
 Route::get('form/{status}', array(
     'as' => 'kiform.paid', 'uses' => 'KiFormController@Paid'
 ));
+
+Route::get('form/foreigner/cancel/{key}/{email}', array(
+    'as' => 'kiform.cancel_check', 'uses' => 'KiFormController@cancelCheck'
+));
