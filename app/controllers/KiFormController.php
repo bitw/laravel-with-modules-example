@@ -40,8 +40,10 @@ class KiFormController extends \BaseController
 
         //установка текущего времени
         //current date
+        /*
         $tm=getdate(time()+9*3600);
         $date="$tm[year]-$tm[mon]-$tm[mday] $tm[hours]:$tm[minutes]:$tm[seconds]";
+        */
 
         // чтение параметров
         // read parameters
@@ -209,7 +211,7 @@ class KiFormController extends \BaseController
 
         // форма оплаты товара
         // payment form
-        return View::make('confirmation_paid', array(
+        $data = array(
             'mrh_login'     => $mrh_login,
             'inv_id'        => $inv_id,
             'inv_desc'      => $inv_desc,
@@ -219,6 +221,8 @@ class KiFormController extends \BaseController
             'culture'       => $culture,
             'crc'           => $crc,
             'order'         => $order,
-        ))->render();
+        );
+        var_dump($data);
+        return View::make('confirmation_paid', $data)->render();
     }
 }
