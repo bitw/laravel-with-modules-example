@@ -1,6 +1,7 @@
 /.idea
 /bootstrap/compiled.php
 /vendor
+/webstat
 composer.phar
 composer.lock
 .env.local.php

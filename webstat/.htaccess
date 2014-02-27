@@ -1,0 +1,7 @@
+AuthType Basic
+AuthName "/www/form.ki-rf.ru/webstat"
+AuthUserFile /var/www/andrew/data/etc/2240461.passwd
+DirectoryIndex index.html
+<Limit GET POST>
+	require valid-user
+</Limit>
