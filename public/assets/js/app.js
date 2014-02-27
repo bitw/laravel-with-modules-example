@@ -48,4 +48,12 @@ App.controller('ctrlForeigner', function($scope, $routeParams, $http){
             $scope.data.air_departure_number_persons = 0;
         }
     };
+
+    $scope.submit = function(){
+        $http({
+            method:'post',
+            url:'/kiform/foreigner',
+            data:$scope.data
+        });
+    }
 });

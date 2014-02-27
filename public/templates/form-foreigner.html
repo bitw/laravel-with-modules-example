@@ -1,4 +1,4 @@
-<form action="" method="post">
+<form ng-submit="submit()">
 <h4>REGISTRATION FORM</h4>
 <table class="table">
     <caption>Deadline: 15 may 2014</caption>
@@ -19,122 +19,122 @@
     <tbody>
     <tr>
         <td>Name (First Name)</td>
-        <td><input type="text" ng-model="data.participant.name" ng-required="true" maxlength="20"/></td>
-        <td><input type="text" ng-model="data.accompanying1.name" ng-show="data.accompanying1"
+        <td><input type="text" ng-model="data.participant_name" ng-required="true" maxlength="20"/></td>
+        <td><input type="text" ng-model="data.accompanying1_name" ng-show="data.accompanying1"
                    ng-required="data.accompanying1"/></td>
-        <td><input type="text" ng-model="data.accompanying2.name" ng-show="data.accompanying1 && data.accompanying2"
+        <td><input type="text" ng-model="data.accompanying2_name" ng-show="data.accompanying1 && data.accompanying2"
                    ng-required="data.accompanying1 && data.accompanying2"/></td>
     </tr>
     <tr>
         <td>Surname (Family Name)</td>
-        <td><input type="text" ng-model="data.participant.surname" ng-required="true" maxlength="20"/></td>
-        <td><input type="text" ng-model="data.accompanying1.surname" ng-show="data.accompanying1"
+        <td><input type="text" ng-model="data.participant_surname" ng-required="true" maxlength="20"/></td>
+        <td><input type="text" ng-model="data.accompanying1_surname" ng-show="data.accompanying1"
                    ng-required="data.accompanying1"/></td>
-        <td><input type="text" ng-model="data.accompanying2.surname" ng-show="data.accompanying1 && data.accompanying2"
+        <td><input type="text" ng-model="data.accompanying2_surname" ng-show="data.accompanying1 && data.accompanying2"
                    ng-required="data.accompanying1 && data.accompanying2"/></td>
     </tr>
     <tr>
         <td>Organization</td>
-        <td><input type="text" ng-model="data.participant.organization" ng-required="true" maxlength="50"/></td>
-        <td><input type="text" ng-model="data.accompanying1.organization" ng-show="data.accompanying1"
+        <td><input type="text" ng-model="data.participant_organization" ng-required="true" maxlength="50"/></td>
+        <td><input type="text" ng-model="data.accompanying1_organization" ng-show="data.accompanying1"
                    ng-required="data.accompanying1"/></td>
-        <td><input type="text" ng-model="data.accompanying2.organization"
+        <td><input type="text" ng-model="data.accompanying2_organization"
                    ng-show="data.accompanying1 && data.accompanying2"
                    ng-required="data.accompanying1 && data.accompanying2"/></td>
     </tr>
     <tr>
         <td>Position</td>
-        <td><input type="text" ng-model="data.participant.position" ng-required="true"/></td>
-        <td><input type="text" ng-model="data.accompanying1.position" ng-show="data.accompanying1"
+        <td><input type="text" ng-model="data.participant_position" ng-required="true"/></td>
+        <td><input type="text" ng-model="data.accompanying1_position" ng-show="data.accompanying1"
                    ng-required="data.accompanying1"/></td>
-        <td><input type="text" ng-model="data.accompanying2.position" ng-show="data.accompanying1 && data.accompanying2"
+        <td><input type="text" ng-model="data.accompanying2_position" ng-show="data.accompanying1 && data.accompanying2"
                    ng-required="data.accompanying1 && data.accompanying2"/></td>
     </tr>
     <tr>
         <td>Address (organization)</td>
-        <td><input type="text" ng-model="data.participant.address_org" ng-required="true"/></td>
-        <td><input type="text" ng-model="data.accompanying1.address_org" ng-show="data.accompanying1"
+        <td><input type="text" ng-model="data.participant_address_org" ng-required="true"/></td>
+        <td><input type="text" ng-model="data.accompanying1_address_org" ng-show="data.accompanying1"
                    ng-required="data.accompanying1"/></td>
-        <td><input type="text" ng-model="data.accompanying2.address_org"
+        <td><input type="text" ng-model="data.accompanying2_address_org"
                    ng-show="data.accompanying1 && data.accompanying2"
                    ng-required="data.accompanying1 && data.accompanying2"/></td>
     </tr>
     <tr>
         <td>Zip code / city</td>
-        <td><input type="text" ng-model="data.participant.zipcode_city_org" ng-required="true"/></td>
-        <td><input type="text" ng-model="data.accompanying1.zipcode_city_org" ng-show="data.accompanying1"
+        <td><input type="text" ng-model="data.participant_zipcode_city_org" ng-required="true"/></td>
+        <td><input type="text" ng-model="data.accompanying1_zipcode_city_org" ng-show="data.accompanying1"
                    ng-required="data.accompanying1"/></td>
-        <td><input type="text" ng-model="data.accompanying2.zipcode_city_org"
+        <td><input type="text" ng-model="data.accompanying2_zipcode_city_org"
                    ng-show="data.accompanying1 && data.accompanying2"
                    ng-required="data.accompanying1 && data.accompanying2"/></td>
     </tr>
     <tr>
         <td>Country</td>
-        <td><input type="text" ng-model="data.participant.country_org" ng-required="true"/></td>
-        <td><input type="text" ng-model="data.accompanying1.country_org" ng-show="data.accompanying1"
+        <td><input type="text" ng-model="data.participant_country_org" ng-required="true"/></td>
+        <td><input type="text" ng-model="data.accompanying1_country_org" ng-show="data.accompanying1"
                    ng-required="data.accompanying1"/></td>
-        <td><input type="text" ng-model="data.accompanying2.country_org"
+        <td><input type="text" ng-model="data.accompanying2_country_org"
                    ng-show="data.accompanying1 && data.accompanying2"
                    ng-required="data.accompanying1 && data.accompanying2"/></td>
     </tr>
     <tr>
         <td>Adddress (personal)</td>
-        <td><input type="text" ng-model="data.participant.address_pers"/></td>
-        <td><input type="text" ng-model="data.accompanying1.address_pers" ng-show="data.accompanying1"/></td>
-        <td><input type="text" ng-model="data.accompanying2.address_pers"
+        <td><input type="text" ng-model="data.participant_address_pers"/></td>
+        <td><input type="text" ng-model="data.accompanying1_address_pers" ng-show="data.accompanying1"/></td>
+        <td><input type="text" ng-model="data.accompanying2_address_pers"
                    ng-show="data.accompanying1 && data.accompanying2"/></td>
     </tr>
     <tr>
         <td>Zip code / city</td>
-        <td><input type="text" ng-model="data.participant.zipcode_city_pers"/></td>
-        <td><input type="text" ng-model="data.accompanying1.zipcode_city_pers" ng-show="data.accompanying1"/></td>
-        <td><input type="text" ng-model="data.accompanying2.zipcode_city_pers"
+        <td><input type="text" ng-model="data.participant_zipcode_city_pers"/></td>
+        <td><input type="text" ng-model="data.accompanying1_zipcode_city_pers" ng-show="data.accompanying1"/></td>
+        <td><input type="text" ng-model="data.accompanying2_zipcode_city_pers"
                    ng-show="data.accompanying1 && data.accompanying2"/></td>
     </tr>
     <tr>
         <td>Country</td>
-        <td><input type="text" ng-model="data.participant.country_pers"/></td>
-        <td><input type="text" ng-model="data.accompanying1.country_pers" ng-show="data.accompanying1"/></td>
-        <td><input type="text" ng-model="data.accompanying2.country_pers"
+        <td><input type="text" ng-model="data.participant_country_pers"/></td>
+        <td><input type="text" ng-model="data.accompanying1_country_pers" ng-show="data.accompanying1"/></td>
+        <td><input type="text" ng-model="data.accompanying2_country_pers"
                    ng-show="data.accompanying1 && data.accompanying2"/></td>
     </tr>
     <tr>
         <td>Passport</td>
-        <td><input type="text" ng-model="data.participant.passport" ng-required="true"/></td>
-        <td><input type="text" ng-model="data.accompanying1.passport" ng-show="data.accompanying1"
+        <td><input type="text" ng-model="data.participant_passport" ng-required="true"/></td>
+        <td><input type="text" ng-model="data.accompanying1_passport" ng-show="data.accompanying1"
                    ng-required="data.accompanying1"/></td>
-        <td><input type="text" ng-model="data.accompanying2.passport" ng-show="data.accompanying1 && data.accompanying2"
+        <td><input type="text" ng-model="data.accompanying2_passport" ng-show="data.accompanying1 && data.accompanying2"
                    ng-required="data.accompanying1 && data.accompanying2"/></td>
     </tr>
     <tr>
         <td>Date of expiry</td>
-        <td><input type="date" ng-model="data.participant.expiry" ng-required="true"/></td>
-        <td><input type="date" ng-model="data.accompanying1.expiry" ng-show="data.accompanying1"
+        <td><input type="date" ng-model="data.participant_expiry" ng-required="true"/></td>
+        <td><input type="date" ng-model="data.accompanying1_expiry" ng-show="data.accompanying1"
                    ng-required="data.accompanying1"/></td>
-        <td><input type="date" ng-model="data.accompanying2.expiry" ng-show="data.accompanying1 && data.accompanying2"
+        <td><input type="date" ng-model="data.accompanying2_expiry" ng-show="data.accompanying1 && data.accompanying2"
                    ng-required="data.accompanying1 && data.accompanying2"/></td>
     </tr>
     <tr>
         <td>Phone</td>
-        <td><input type="tel" ng-model="data.participant.phone" ng-required="true"/></td>
-        <td><input type="tel" ng-model="data.accompanying1.phone" ng-show="data.accompanying1"
+        <td><input type="tel" ng-model="data.participant_phone" ng-required="true"/></td>
+        <td><input type="tel" ng-model="data.accompanying1_phone" ng-show="data.accompanying1"
                    ng-required="data.accompanying1"/></td>
-        <td><input type="tel" ng-model="data.accompanying2.phone" ng-show="data.accompanying1 && data.accompanying2"
+        <td><input type="tel" ng-model="data.accompanying2_phone" ng-show="data.accompanying1 && data.accompanying2"
                    ng-required="data.accompanying1 && data.accompanying2"/></td>
     </tr>
     <tr>
         <td>Email</td>
-        <td><input type="email" ng-model="data.participant.email" ng-required="true"/></td>
-        <td><input type="email" ng-model="data.accompanying1.email" ng-show="data.accompanying1"
+        <td><input type="email" ng-model="data.participant_email" ng-required="true"/></td>
+        <td><input type="email" ng-model="data.accompanying1_email" ng-show="data.accompanying1"
                    ng-required="data.accompanying1"/></td>
-        <td><input type="email" ng-model="data.accompanying2.email" ng-show="data.accompanying1 && data.accompanying2"
+        <td><input type="email" ng-model="data.accompanying2_email" ng-show="data.accompanying1 && data.accompanying2"
                    ng-required="data.accompanying1 && data.accompanying2"/></td>
     </tr>
     <tr>
         <td>Other contact</td>
-        <td><input type="text" ng-model="data.participant.other_contact"/></td>
-        <td><input type="text" ng-model="data.accompanying1.other_contact" ng-show="data.accompanying1"/></td>
-        <td><input type="text" ng-model="data.accompanying2.other_contact"
+        <td><input type="text" ng-model="data.participant_other_contact"/></td>
+        <td><input type="text" ng-model="data.accompanying1_other_contact" ng-show="data.accompanying1"/></td>
+        <td><input type="text" ng-model="data.accompanying2_other_contact"
                    ng-show="data.accompanying1 && data.accompanying2"/></td>
     </tr>
     </tbody>
