@@ -107,7 +107,7 @@ class KiFormController extends \BaseController
         return View::make('foreigner.success', array('result' => 1))->render();
     }
 
-    public function cancelCheck($key, $email)
+    public function cancelCheck($key)
     {
         $check = Foreigner::where('key', '=', $key)->get()->first();
 
