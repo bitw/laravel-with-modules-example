@@ -41,24 +41,22 @@ class KiFormController extends \BaseController
     public function Result()
     {
         // чтение параметров
-        $out_summ       = Input::get("OutSum");
-        $inv_id         = Input::get("InvId");
-        $shp_paid_key   = Input::get("Shp_paid_key");
-        $crc            = Input::get("SignatureValue");
+        $out_summ   = Input::get("OutSum");
+        $inv_id     = Input::get("InvId");
+        $shp_item	= Input::get("Shp_item");
+        $crc        = Input::get("SignatureValue");
 
         $crc = strtoupper($crc);
 
-        $my_crc = strtoupper(md5("$out_summ:$inv_id:{$this->mrh_pass2}:Shp_paid_key=$shp_paid_key"));
-echo $crc."<br/>\n";
-echo $my_crc;
-exit;
+        $my_crc = strtoupper(md5("$out_summ:$inv_id:{$this->mrh_pass2}:Shp_item=$shp_item"));
+
         // проверка корректности подписи
         if ($my_crc !=$crc)
         {
             return "bad sign\n";
         }
 
-        $check = Foreigner::where('key', '=', $shp_paid_key)->get()->first();
+        $check = Foreigner::where('key', '=', $shp_item)->get()->first();
 
         $check->paid = true;
         $check->billing_information = serialize(Input::all());
@@ -79,21 +77,19 @@ exit;
     public function Success()
     {
         // чтение параметров
-        $out_summ = Input::get("OutSum");
-        $inv_id = Input::get("InvId");
-        $shp_paid_key = Input::get("Shp_paid_key");
-        $crc = Input::get("SignatureValue");
+        $out_summ	= Input::get("OutSum");
+        $inv_id		= Input::get("InvId");
+        $shp_item	= Input::get("Shp_item");
+        $crc		= Input::get("SignatureValue");
 
         $crc = strtoupper($crc);
 
-        $my_crc = strtoupper(md5("$out_summ:$inv_id:{$this->mrh_pass1}:Shp_item=$shp_paid_key"));
-echo $crc."<br/>\n";
-echo $my_crc;
-exit;
+        $my_crc = strtoupper(md5("$out_summ:$inv_id:{$this->mrh_pass1}:Shp_item=$shp_item"));
+
         // проверка корректности подписи
         if ($my_crc !=$crc) return "bad sign\n";
 
-        $check = Foreigner::where('key', '=', $shp_paid_key)->get()->first();
+        $check = Foreigner::where('key', '=', $shp_item)->get()->first();
 
         if(!$check)
         {
@@ -134,7 +130,7 @@ exit;
         $out_summ = $order->payment_amount;
 
         // тип товара
-        $shp_paid_key = $order->key;
+        $shp_item = $order->key;
 
         // предлагаемая валюта платежа
         $in_curr = "";
@@ -143,7 +139,7 @@ exit;
         $culture = "ru";
 
         // формирование подписи
-        $crc  = md5("{$this->mrh_login}:$out_summ:$inv_id:{$this->mrh_pass1}:Shp_paid_key=$shp_paid_key");
+        $crc  = md5("{$this->mrh_login}:$out_summ:$inv_id:{$this->mrh_pass1}:Shp_item=$shp_item");
 
         // форма оплаты товара
         $data = array(
@@ -151,7 +147,7 @@ exit;
             'inv_id'        => $inv_id,
             'inv_desc'      => $inv_desc,
             'out_summ'      => $out_summ,
-            'shp_paid_key'  => $shp_paid_key,
+            'shp_item'		=> $shp_item,
             'in_curr'       => $in_curr,
             'culture'       => $culture,
             'crc'           => $crc,
